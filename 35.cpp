@@ -71,6 +71,7 @@ int main()
     int ch, ch1, bit, b;
     bool znak = false;
     cin >> ch >> bit;
+    if (ch < 0){
     if (ch < 0)
     {
         ch = ch * -1;
@@ -90,4 +91,11 @@ int main()
     cout << dop(st) << endl;
     b = dop(st);
     cout << dop1(b, dv);
+    }
+    else
+    {
+    string st(bit, '0');
+    st = dvoichka(ch, st);
+    cout << dvoichka(ch, st);
+    }
 }
