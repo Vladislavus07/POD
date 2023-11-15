@@ -58,9 +58,7 @@ string dop1(int b, string st)
         st[k] = zifra;
         k--;
         b = b / 2;
-        cout << b << endl;
     }
-    cout << b;
     return st;
 }
 
@@ -70,32 +68,36 @@ int main()
 {
     int ch, ch1, bit, b;
     bool znak = false;
-    cin >> ch >> bit;
-    if (ch < 0){
+    cin >> ch >> bit >> ch1;
     if (ch < 0)
     {
-        ch = ch * -1;
-        znak = true;
-    }
-    string st(bit, '0');
-    st = dvoichka(ch, st);
-    if (znak)
-    {
-        st[0] = '1';
-    }
-    cout << dvoichka(ch, st) << endl;
-    cout << zamen(st) << endl;
-    string dv(bit, '0');
-    dv = dvoichka(ch, st);
-    st = zamen(st);
-    cout << dop(st) << endl;
-    b = dop(st);
-    cout << dop1(b, dv);
+        if (ch < 0)
+        {
+            ch = ch * -1;
+            znak = true;
+        }
+        string st(bit, '0');
+        st = dvoichka(ch, st);
+        if (znak)
+        {
+            st[0] = '1';
+        }
+        if (ch1 == 1)
+        cout << dvoichka(ch, st) << endl;
+        if (ch1 == 2)
+        cout << zamen(st) << endl;
+        if (ch1 == 3){
+        string dv(bit, '0');
+        dv = dvoichka(ch, st);
+        st = zamen(st);
+        b = dop(st);
+        cout << dop1(b, dv);
+        }
     }
     else
     {
-    string st(bit, '0');
-    st = dvoichka(ch, st);
-    cout << dvoichka(ch, st);
+        string st(bit, '0');
+        st = dvoichka(ch, st);
+        cout << dvoichka(ch, st);
     }
 }
